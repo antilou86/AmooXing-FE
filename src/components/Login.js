@@ -1,98 +1,27 @@
-import React, {useState} from "react";
-import { withFormik, Form, Field } from "formik";
-import axios from "axios";
-import * as Yup from "yup";
-import { Button, Form as SemForm } from "semantic-ui-react";
-import { connect } from "react-redux";
-import { addUsernameToState } from "../actions/addUsernameToState";
+import React from 'react';
 
-import "semantic-ui-css/semantic.min.css";
-
-const errorStyle = {
-  fontSize: "1em",
-  color: "red"
-};
-
-const Login = ({ errors, touched }) => {
-  const [ incorrect, setIncorrect ] = useState()
+const Login = () => {
   return (
-    <SemForm className="formContainers">
-      <Form className="login-Form">
-        <h1>Login:</h1>
-        <SemForm.Field>
-          <Field
-            name="username"
-            type="text"
-            autoComplete="off"
-            placeholder="username"
-          />
-          {touched.username && errors.username && (
-            <p style={errorStyle}>{errors.username}</p>
-          )}
-        </SemForm.Field>
-        <SemForm.Field>
-          <Field
-            name="password"
-            type="password"
-            autoComplete="off"
-            placeholder="Password"
-          />
-          {touched.password && errors.password && (
-            <p className="error">{errors.password}</p>
-          )}
-        </SemForm.Field>
-        <Button
-          style={{
-            margin: "1em auto",
-            backgroundColor: "#25BB49",
-            color: "white"
-          }}
-          type="submit"
-        >
-          Login &rarr;
-        </Button>
-      </Form>
-      {incorrect && <h2>username or password incorrect</h2>}
-    </SemForm>
-  );
-};
+    //container for the form
+    <div>
+      <form action="/NEW_USER_URL">
+        {/* username */}
+        <label for="user">Username:</label>
+        <input type="text" name="username" value="username"></input>
 
-const FormikForm = withFormik({
-  mapPropsToValues({ username, password }) {
-    return {
-      username: username || "",
-      password: password || ""
-    };
-  },
+        {/* password 1 */}
+        <label for="password1">Password</label>
+        <input type="text" name="password1" value="password 1"></input>
 
-  validationSchema: Yup.object().shape({
-    username: Yup.string().required(),
-    password: Yup.string().required()
-  }),
+        {/* password 2 */}
+        <label for="password2">Confirm Password</label>
+        <input type="text" name="password2" value="password 2"></input>
 
-  handleSubmit(values, { props }) {
-    {/*must adjust the API url*/}
-    axios
-      .post("https://receipt-tracker-api.herokuapp.com/login", values) 
-      .then(res => {
-        console.log(values);
-        console.log(res);
-        localStorage.setItem("token", res.data.token);
-        props.addUsernameToState(values.username); {/*will need to adjust this to add all user info to state*/}
-        props.history.push("/");
-      })
-      .catch(err => {
-        console.log(values);
-        console.log(err.response);
-      });
-  }
-})(Login);
+        {/* submit */}
+        <input type="submit" value="Submit"></input>
+      </form>
+    </div>
+  )
+}
 
-const mapStateToProps = state => ({
-  state: state
-});
-
-export default connect(
-  mapStateToProps,
-  { addUsernameToState }
-)(FormikForm);
+export default Login;
