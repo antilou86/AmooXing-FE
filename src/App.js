@@ -1,32 +1,20 @@
 import React from 'react';
 import {Route, BrowserRouter as Router, Switch} from 'react-router-dom';
-import logo from './logo.svg';
+import ItemsList from './components/ItemsList';
 import './App.css';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React or whatever
-          </a>
-        </header>
+        <h1>AmooXing: Where amoos trik yew inta dooin they chores.</h1>
+        {/*NavBar component here*/}
         <Switch>
-              <Route exact path="/" component={}/>
-              <Route path="/registration" component={}/>
-              <Route path="/login" component={}/>
-              <Route path="/sellables" component={}/>
-              <Route path="/profile" component ={}/>
+              <Route exact path="/" component={ItemsList}/>
+              {/* <Route path="/registration" component={}/> */}
+              {/* <Route path="/login" component={}/> */}
+              <Route path="/sellables" component={ItemsList}/>
+              {/* <Route path="/profile" component ={}/> */}
         </Switch>
         {/* footer here */}
       </div>
