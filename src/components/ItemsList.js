@@ -2,11 +2,17 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import ItemsCard from './ItemsCard';
 
-const ItemsList = () => {
-    //load data into a state object.(useState)
-    const [items, setItems] = useState([]);
+import styled from 'styled-components';
 
-    //pull in all data on pageload. (useEffect)
+const ItemsList = () => {
+    const [items, setItems] = useState([]);
+    
+    //STYLING UNTIL LINE
+    const ListDiv = styled.div`
+    
+    `
+    
+    //pull in api data on pageload.
     useEffect(() => {
         const getItems = () => {
             axios
@@ -18,17 +24,18 @@ const ItemsList = () => {
     }, [])
 
     return (
-        // container for the whole ass page.
-        <div className = "item-list">
+        //container for the whole list.
+        <ListDiv>
+
+            {/*map over state and return a collectables (fish/bug) card for each item*/}
+            <div>
+                {items && items.map(item => <ItemsCard key={item.name} item={item}/>)}
+            </div>
+        
             {/* a div to hold our filter bar. */}
             <div></div>
 
-            {/* div to contain the results of the api call*/}
-            <div>
-                {/*map over state and return a collectables (fish/bug) card for each item*/}
-                {items && items.map(item => <ItemsCard key={item.name} item={item}/>)}
-            </div>
-        </div>
+        </ListDiv>
     )
 }
 
