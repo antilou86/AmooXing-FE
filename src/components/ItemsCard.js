@@ -24,7 +24,7 @@ const ItemsCard = ({ item }) => {
     return (
         <Card>
 
-            <img src={image_url} alt={`pic of ${name}`} style={{width: `33%`, backgroundColor:`tan`}}/>
+            <img src={image_url} alt={`pic of ${name}`} style={{width: `33%`}}/>
 
             <ParagraphContainer>
 
@@ -39,9 +39,11 @@ const ItemsCard = ({ item }) => {
                 ternery that will render northern or southern hemisphere based on relevant user location. since this
                 app was built specifically for my friends and family it is going to default to northern for now*/}
                 <CardP>Available: {`${northern_season}`}</CardP>
+
                 {northern_availability==="N/A" ? 
                     <CardP style={{paddingBottom: `10px`}}>Hours: Unknown</CardP> 
                     : <CardP style={{paddingBottom: `10px`}}>Hours: {northern_availability}</CardP>}
+                    
             </ParagraphContainer>
 
         </Card>

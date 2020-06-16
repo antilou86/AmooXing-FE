@@ -9,7 +9,6 @@ const ItemsList = () => {
     
     //STYLING UNTIL LINE
     const ListDiv = styled.div`
-    
     `
     
     //pull in api data on pageload.
