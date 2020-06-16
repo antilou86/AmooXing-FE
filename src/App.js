@@ -1,6 +1,7 @@
 import React from 'react';
 import {Route, BrowserRouter as Router, Switch} from 'react-router-dom';
-import ItemsList from './components/ItemsList';
+import SearchForm from './components/SearchForm';
+
 import './App.css';
 
 function App() {
@@ -10,10 +11,10 @@ function App() {
         <h1>AmooXing: Where amoos trik yew inta dooin they chores.</h1>
         {/*NavBar component here*/}
         <Switch>
-              <Route exact path="/" component={ItemsList}/>
+              <Route exact path="/" component={SearchForm}/>
               {/* <Route path="/registration" component={}/> */}
               {/* <Route path="/login" component={}/> */}
-              <Route path="/sellables" component={ItemsList}/>
+              <Route path="/sellables" component={SearchForm}/>
               {/* <Route path="/profile" component ={}/> */}
         </Switch>
         {/* footer here */}
