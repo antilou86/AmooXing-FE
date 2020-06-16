@@ -6,7 +6,7 @@ import './App.css';
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="App" style={{backgroundColor: `rgba(150, 205, 255, 1)`}}>
         <h1>AmooXing: Where amoos trik yew inta dooin they chores.</h1>
         {/*NavBar component here*/}
         <Switch>
