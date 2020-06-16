@@ -4,13 +4,14 @@ import ItemsCard from './ItemsCard';
 
 import styled from 'styled-components';
 
-const ItemsList = () => {
-    const [items, setItems] = useState([]);
     
     //STYLING UNTIL LINE
-    const ListDiv = styled.div`
+const ListDiv = styled.div`
     `
     
+const ItemsList = (props) => {
+    const [items, setItems] = useState([]);
+
     //pull in api data on pageload.
     useEffect(() => {
         const getItems = () => {
@@ -20,7 +21,7 @@ const ItemsList = () => {
                 .catch(error => {console.error('Server Error', error);});
         }
         getItems();
-    }, [])
+    }, [props.query])
 
     return (
         //container for the whole list.
@@ -28,7 +29,14 @@ const ItemsList = () => {
 
             {/*map over state and return a collectables (fish/bug) card for each item*/}
             <div>
-                {items && items.map(item => <ItemsCard key={item.name} item={item}/>)}
+                {/* if items exist, check if there is anything in the search box*/}
+                {items && props.query.name.trim() ? 
+                    // map over what matches and render
+                    items.map(item => {
+                        if (item.name.toLowerCase().includes(props.query.name.toLowerCase())) {
+                            return <ItemsCard key={item.name} item={item}/>}}) 
+                    //otherwise just render everything
+                    : items.map(item => <ItemsCard key={item.name} item={item}/>)}
             </div>
         
             {/* a div to hold our filter bar. */}
