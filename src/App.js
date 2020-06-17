@@ -8,7 +8,7 @@ import amoo from './images/amoo.png';
 function App() {
   return (
     <Router>
-      <div className="App" style={{backgroundColor: `rgba(150, 205, 255, 1)`}}>
+      <div className="App">
         <img src={amoo} alt="logo for amoo xing"/>
         <h1>Where amoos trik yew inta dooin they chores.</h1>
         {/*NavBar component here*/}
