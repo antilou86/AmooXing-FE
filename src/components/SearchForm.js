@@ -1,5 +1,14 @@
 import React, { useState } from 'react';
 import ItemsList from './ItemsList';
+import styled from 'styled-components';
+
+const BigInputBar = styled.input`
+    width: 40%;
+    height: 40px;
+    max-width: 600px;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+`
 
 const SearchForm = () => {
 
@@ -26,7 +35,7 @@ const SearchForm = () => {
           <option value="location">location</option>
         </select> */}
 
-        <input
+        <BigInputBar
           onChange={handleInputChange}
           placeholder="search for a bug or a fish"
           value={query.name}

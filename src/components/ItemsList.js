@@ -4,8 +4,6 @@ import ItemsCard from './ItemsCard';
 
 import styled from 'styled-components';
 
-    
-    //STYLING UNTIL LINE
 const ListDiv = styled.div`
     display: flex;
     flex-flow: column no-wrap;
