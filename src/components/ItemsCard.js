@@ -3,10 +3,13 @@ import styled from 'styled-components';
 
 const Card = styled.div`
 width: 98%;
+min-width: 430px;
+max-width: 650px;
 margin-bottom: 20px;
 display: flex;
 flex-flow: row wrap;
 justify-content: space-between;
+font-size: 1.5rem;
 `
 const CardP = styled.p`
 margin: 0;
