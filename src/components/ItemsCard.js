@@ -2,13 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Card = styled.div`
-width: 98%;
+width: 100%;
 max-width: 650px;
+min-width: 350px;
 margin-bottom: 20px;
 display: flex;
 flex-flow: row wrap;
 justify-content: space-between;
 font-size: 1.2rem;
+border: thin solid black;
 `
 const CardP = styled.p`
 margin: 0;

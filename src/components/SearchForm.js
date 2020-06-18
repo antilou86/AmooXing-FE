@@ -5,11 +5,14 @@ import styled from 'styled-components';
 const BigInputBar = styled.input`
     width: 40%;
     height: 40px;
+    min-width: 300px;
     max-width: 600px;
     font-size: 1.5rem;
     margin-bottom: 20px;
 `
-
+const Container = styled.div`
+    width:100%;
+`
 const SearchForm = () => {
 
   const [query, setQuery] = useState({
@@ -26,7 +29,7 @@ const SearchForm = () => {
   }
 
   return (
-    <>
+    <Container>
       <form> {/*if onSubmit is required you'll need to build out onSearch:  onSubmit={() => onSearch(query)}*/}
         {/* <p>Select search type:</p>        
         <select name="search type" onChange={handleSelectChange}> 
@@ -45,7 +48,7 @@ const SearchForm = () => {
         {/* <button type="submit">Search</button> */}
       </form>
       <ItemsList query={query}/>
-    </>
+    </Container>
   );
 }
 
