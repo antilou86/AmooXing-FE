@@ -2,13 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Card = styled.div`
-width: 98%;
+width: 100%;
 max-width: 650px;
+min-width: 350px;
 margin-bottom: 20px;
 display: flex;
 flex-flow: row wrap;
 justify-content: space-between;
-font-size: 1rem;
+font-size: 1.2rem;
+border: thin solid black;
 `
 const CardP = styled.p`
 margin: 0;
@@ -31,8 +33,8 @@ const ItemsCard = ({ item }) => {
 
             <ParagraphContainer>
 
-                <h2 style={{margin: 0, paddingLeft: `10px`, backgroundColor:`tan`, color: `green`}}>{name}</h2>
-                <h3 style={{margin: 0, paddingLeft: `10px`, paddingBottom: `5px`, color: `yellow`, backgroundColor:`tan`}}>
+                <h2 style={{margin: 0, paddingLeft: `10px`, backgroundColor:`rgba(135,112,95,.8)`, color: `green`}}>{name}</h2>
+                <h3 style={{margin: 0, paddingLeft: `10px`, paddingBottom: `5px`, color: `yellow`, backgroundColor:`rgb(135,112,95,.8)`}}>
                     Worth {sell_price} bells
                 </h3>
                 
