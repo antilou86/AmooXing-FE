@@ -5,8 +5,10 @@ import ItemsCard from './ItemsCard';
 import styled from 'styled-components';
 
 const ListDiv = styled.div`
+    width: 98%;
     display: flex;
-    flex-flow: column no-wrap;
+    flex-flow: column wrap;
+    align-items: center;
     justify-content: center;
     `
     
@@ -27,22 +29,14 @@ const ItemsList = (props) => {
     return (
         //container for the whole list.
         <ListDiv>
-
-            {/*map over state and return a collectables (fish/bug) card for each item*/}
-            <div>
-                {/* if items exist, check if there is anything in the search box*/}
-                {items && props.query.name.trim() ? 
-                    // map over what matches and render
-                    items.map(item => {
-                        if (item.name.toLowerCase().includes(props.query.name.toLowerCase())) {
-                            return <ItemsCard key={item.name} item={item}/>}}) 
-                    //otherwise just render everything
-                    : items.map(item => <ItemsCard key={item.name} item={item}/>)}
-            </div>
-        
-            {/* a div to hold our filter bar. */}
-            <div></div>
-
+            {/* if items exist, check if there is anything in the search box*/}
+            {items && props.query.name.trim() ? 
+                // map over what matches and render
+                items.map(item => {
+                    if (item.name.toLowerCase().includes(props.query.name.toLowerCase())) {
+                        return <ItemsCard key={item.name} item={item}/>}}) 
+            //otherwise just render everything
+            : items.map(item => <ItemsCard key={item.name} item={item}/>)}
         </ListDiv>
     )
 }
