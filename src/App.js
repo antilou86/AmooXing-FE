@@ -10,7 +10,7 @@ function App() {
     <Router>
       <div className="App">
         <img src={amoo} alt="logo for amoo xing"/>
-        <h1>Where amoos trik yew inta dooin they chores.</h1>
+        <h1>Where amoos trik yew inta dooin thurr chores</h1>
         {/*NavBar component here*/}
         <Switch>
               <Route exact path="/" component={SearchForm}/>
