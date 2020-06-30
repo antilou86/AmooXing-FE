@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import ItemsCard from './ItemsCard';
-
+import "../Loader.css"
 import styled from 'styled-components';
 
 const ListDiv = styled.div`
@@ -30,13 +30,20 @@ const ItemsList = (props) => {
         //container for the whole list.
         <ListDiv>
             {/* if items exist, check if there is anything in the search box*/}
-            {items && props.query.name.trim() ? 
+            {items ? (props.query.name.trim() ? 
                 // map over what matches and render
                 items.map(item => {
                     if (item.name.toLowerCase().includes(props.query.name.toLowerCase())) {
                         return <ItemsCard key={item.name} item={item}/>}}) 
             //otherwise just render everything
-            : items.map(item => <ItemsCard key={item.name} item={item}/>)}
+            : items.map(item => <ItemsCard key={item.name} item={item}/>)): <div class="loader">Loading...</div>}
+            {/* {props.query.name.trim() ? 
+                // map over what matches and render
+                items.map(item => {
+                    if (item.name.toLowerCase().includes(props.query.name.toLowerCase())) {
+                        return <ItemsCard key={item.name} item={item}/>}}) 
+            //otherwise just render everything
+            : items.map(item => <ItemsCard key={item.name} item={item}/>)} */}
         </ListDiv>
     )
 }

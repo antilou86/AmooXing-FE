@@ -3,14 +3,18 @@ import styled from 'styled-components';
 
 const Card = styled.div`
 width: 100%;
-max-width: 650px;
-min-width: 350px;
+max-width: 700px;
+min-width: 400px;
 margin-bottom: 20px;
 display: flex;
 flex-flow: row wrap;
 justify-content: space-between;
 font-size: 1.2rem;
 border: thin solid black;
+
+@media (max-width: 511px) {
+    font-size: 1rem;
+}
 `
 const CardP = styled.p`
 margin: 0;
@@ -22,6 +26,13 @@ width: 66%;
 text-align: left;
 `
 
+const ImageDiv = styled.img`
+width: 33%;
+@media (max-width: 138px) {
+    width:25%;
+}
+`
+
 const ItemsCard = ({ item }) => {
 
     const { name, image_url, sell_price, location, northern_season, northern_availability } = item;
@@ -29,7 +40,7 @@ const ItemsCard = ({ item }) => {
     return (
         <Card>
 
-            <img src={image_url} alt={`pic of ${name}`} style={{width: `33%`}}/>
+            <ImageDiv src={image_url} alt={`pic of ${name}`} style={{width: `33%`}}/>
 
             <ParagraphContainer>
 
