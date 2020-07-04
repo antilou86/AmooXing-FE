@@ -28,6 +28,7 @@ text-align: left;
 
 const ImageDiv = styled.img`
 width: 33%;
+background-color: rgb(247,232,198);
 @media (max-width: 138px) {
     width:25%;
 }
