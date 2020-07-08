@@ -26,20 +26,22 @@ const ItemsList = (props) => {
         getItems();
     }, [props.query])
 
+    //if items array is empty, call loader div
+    if (!items) {
+        return <div class="loader">Loading...</div>
+    }
     return (
         //container for the whole list.
         <ListDiv>
             {/* if items exist, check if there is anything in the search box*/}
-            {items ? 
-                (props.query.name.trim() ? 
+            {(props.query.name.trim() ? 
                     // map over what matches and render
                     items.map(item => {
                         if (item.name.toLowerCase().includes(props.query.name.toLowerCase())) {
                             return <ItemsCard key={item.name} item={item}/>}}) 
                     //otherwise just render everything
                     : items.map(item => <ItemsCard key={item.name} item={item}/>))
-            //if items array is empty, call loader div
-            : <div class="loader">Loading...</div>}
+            }
         </ListDiv>
     )
 }

@@ -40,7 +40,7 @@ const SearchForm = () => {
 
         <BigInputBar
           onChange={handleInputChange}
-          placeholder="search for a bug or a fish"
+          placeholder="search for bugs, fish, or sea critters"
           value={query.name}
           name="name"
         />
