@@ -35,6 +35,7 @@ background-color: rgb(247,232,198);
 `
 const DummyDiv = styled.div`
 width: 33%;
+font-size: 30px;
 background-color: rgb(247,232,198);
 @media (max-width: 138px) {
     width:25%;

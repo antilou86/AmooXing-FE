@@ -37,12 +37,12 @@ const ItemsPage = () => {
             .get('https://amoo-xing.herokuapp.com/villagers')
             .then(response => {
                 for(const character of response.data) {
-                    setQuery(...query, character.birthday)
+                    setQuery({...query, birthdays: [...query.birthdays, character.birthday]})
             }})
             .catch(error => {console.error('SERVER ERROR: whoa whoa whoa', error)})
       }
       getBirthdays()
-  },[query])
+  },[])
 
 
   return (
