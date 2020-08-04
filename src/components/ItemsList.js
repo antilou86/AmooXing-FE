@@ -30,6 +30,7 @@ const ItemsList = (props) => {
     if (items.length == 0) {
         return <div class="loader">Loading...</div>
     }
+    
     return (
         //container for the whole list.
         <ListDiv>

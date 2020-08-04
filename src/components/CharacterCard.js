@@ -33,6 +33,13 @@ background-color: rgb(247,232,198);
     width:25%;
 }
 `
+const DummyDiv = styled.div`
+width: 33%;
+background-color: rgb(247,232,198);
+@media (max-width: 138px) {
+    width:25%;
+}
+`
 
 const CharacterCard = ({ character }) => {
 
@@ -40,8 +47,11 @@ const CharacterCard = ({ character }) => {
 
     return (
         <Card>
-
-            <ImageDiv src={image_url} alt={`${villager_name}`} style={{width: `33%`}}/>
+            {
+            image_url
+            ? <ImageDiv src={image_url} alt={`${villager_name}`}/>
+            : <DummyDiv>?</DummyDiv>
+            }
 
             <ParagraphContainer>
 
