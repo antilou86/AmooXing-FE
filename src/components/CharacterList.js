@@ -30,10 +30,11 @@ const CharacterList = (props) => {
     if (characters.length == 0) {
         return <div class="loader">Loading...</div>
     }
+
     return (
         //container for the whole list.
         <ListDiv>
-            {/* if items exist, check if there is anything in the search box*/}
+            {/* if a value exists in search or dropdown*/}
             {(
                 props.query.name.trim() || props.query.dropVal ? 
                     // map over what matches and render
