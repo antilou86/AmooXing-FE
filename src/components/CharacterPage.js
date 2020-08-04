@@ -59,7 +59,7 @@ const ItemsPage = () => {
       
       <p>Select a birthday from the list:</p>
       <select name="birthdays" onChange={handleSelectChange}>
-          {birthdays.map((bday,key) => <option key={key}>{bday}</option>)}
+          {query.birthdays.map((bday,key) => <option key={key}>{bday}</option>)}
       </select>
 
       <CharacterList query={query}/>
