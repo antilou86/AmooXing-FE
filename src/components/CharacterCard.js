@@ -36,16 +36,16 @@ background-color: rgb(247,232,198);
 
 const CharacterCard = ({ character }) => {
 
-    const { name, image_url, birthday, personality } = character;
+    const { villager_name, image_url, birthday, personality } = character;
 
     return (
         <Card>
 
-            <ImageDiv src={image_url} alt={`${name}`} style={{width: `33%`}}/>
+            <ImageDiv src={image_url} alt={`${villager_name}`} style={{width: `33%`}}/>
 
             <ParagraphContainer>
 
-                <h2 style={{margin: 0, paddingLeft: `10px`, paddingBottom: `5px`, backgroundColor:`rgba(135,112,95,.8)`, color: `black`}}>{name}</h2>
+                <h2 style={{margin: 0, paddingLeft: `10px`, paddingBottom: `5px`, backgroundColor:`rgba(135,112,95,.8)`, color: `black`}}>{villager_name}</h2>
                 <CardP>Birthday: {`${birthday}`} </CardP>
                 <CardP>Personality: {`${personality}`}</CardP>
 
