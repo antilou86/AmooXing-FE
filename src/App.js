@@ -1,6 +1,7 @@
 import React from 'react';
 import {Route, BrowserRouter as Router, Switch} from 'react-router-dom';
-import SearchForm from './components/SearchForm';
+import ItemsPage from './components/ItemsPage';
+import CharacterPage from './components/CharacterPage';
 
 import './App.css';
 import amoo from './images/amoo.png';
@@ -13,10 +14,11 @@ function App() {
         <h1>Where amoos trik yew inta dooin thurr chores</h1>
         {/*NavBar component here*/}
         <Switch>
-              <Route exact path="/" component={SearchForm}/>
+              <Route exact path="/" component={ItemsPage}/>
               {/* <Route path="/registration" component={}/> */}
               {/* <Route path="/login" component={}/> */}
-              <Route path="/sellables" component={SearchForm}/>
+              <Route path="/sellables" component={ItemsPage}/>
+              <Route path="/villagers" component={CharacterPage}/>
               {/* <Route path="/profile" component ={}/> */}
         </Switch>
         {/* footer here */}

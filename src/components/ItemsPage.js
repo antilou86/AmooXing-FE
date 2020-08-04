@@ -13,7 +13,7 @@ const BigInputBar = styled.input`
 const Container = styled.div`
     width:100%;
 `
-const SearchForm = () => {
+const ItemsPage = () => {
 
   const [query, setQuery] = useState({
     name: "",
@@ -40,7 +40,7 @@ const SearchForm = () => {
 
         <BigInputBar
           onChange={handleInputChange}
-          placeholder="search for bugs, fish, or sea critters"
+          placeholder="type the name of a bug, fish, or sea critter"
           value={query.name}
           name="name"
         />
@@ -52,4 +52,4 @@ const SearchForm = () => {
   );
 }
 
-export default SearchForm;
+export default ItemsPage;

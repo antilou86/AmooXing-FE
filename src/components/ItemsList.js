@@ -27,14 +27,16 @@ const ItemsList = (props) => {
     }, [props.query])
 
     //if items array is empty, call loader div
-    if (!items) {
+    if (items.length == 0) {
         return <div class="loader">Loading...</div>
     }
+    
     return (
         //container for the whole list.
         <ListDiv>
             {/* if items exist, check if there is anything in the search box*/}
-            {(props.query.name.trim() ? 
+            {(
+                props.query.name.trim() ? 
                     // map over what matches and render
                     items.map(item => {
                         if (item.name.toLowerCase().includes(props.query.name.toLowerCase())) {
