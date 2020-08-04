@@ -42,7 +42,7 @@ const ItemsPage = () => {
             .catch(error => {console.error('SERVER ERROR: whoa whoa whoa', error)})
       }
       getBirthdays()
-  },[query])
+  },[])
 
 
   return (
