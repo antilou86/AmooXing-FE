@@ -18,7 +18,7 @@ function App() {
               {/* <Route path="/registration" component={}/> */}
               {/* <Route path="/login" component={}/> */}
               <Route path="/sellables" component={ItemsPage}/>
-              <Routh path="/villagers" component={CharacterPage}/>
+              <Route path="/villagers" component={CharacterPage}/>
               {/* <Route path="/profile" component ={}/> */}
         </Switch>
         {/* footer here */}
