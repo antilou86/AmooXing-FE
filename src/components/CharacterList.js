@@ -27,7 +27,7 @@ const CharacterList = (props) => {
     }, [props.query])
 
     //if characters array is empty, call loader div
-    if (characters.length == 0) {
+    if (characters.length === 0) {
         return <div class="loader">Loading...</div>
     }
 
@@ -39,7 +39,7 @@ const CharacterList = (props) => {
                 props.query.name.trim() || props.query.dropVal ? 
                     // map over what matches and render
                     characters.map(character => {
-                        if (character.name.toLowerCase().includes(props.query.name.toLowerCase() || character.birthday == props.query.dropVal)) {
+                        if (character.name.toLowerCase().includes(props.query.name.toLowerCase()) || character.birthday == props.query.dropVal) {
                             return <CharacterCard key={character.name} character={character}/>}})
                     //otherwise just render everything
                     : characters.map(character => <CharacterCard key={character.name} character={character}/>))
