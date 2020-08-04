@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import ItemsList from './ItemsList';
 import styled from 'styled-components';
 import CharacterList from './CharacterList';
 
@@ -43,7 +42,7 @@ const ItemsPage = () => {
             .catch(error => {console.error('SERVER ERROR: whoa whoa whoa', error)})
       }
       getBirthdays()
-  },[])
+  },[query])
 
 
   return (
@@ -57,7 +56,7 @@ const ItemsPage = () => {
         />
       </form>
       
-      <p>Select a birthday from the list:</p>
+      <p>Bday:</p>
       <select name="birthdays" onChange={handleSelectChange}>
           {query.birthdays.map((bday,key) => <option key={key}>{bday}</option>)}
       </select>
