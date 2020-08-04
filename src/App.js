@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, BrowserRouter as Router, Switch} from 'react-router-dom';
-import SearchForm from './components/SearchForm';
+import SearchForm from './components/ItemsPage';
 
 import './App.css';
 import amoo from './images/amoo.png';

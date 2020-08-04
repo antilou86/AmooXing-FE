@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import ItemsCard from './ItemsCard';
+import CharacterCard from './CharacterCard';
 import "../Loader.css"
 import styled from 'styled-components';
 
@@ -35,16 +35,16 @@ const CharacterList = (props) => {
         <ListDiv>
             {/* if items exist, check if there is anything in the search box*/}
             {(
-                props.query.name.trim() ? 
+                props.query.name.trim() || props.query.dropVal ? 
                     // map over what matches and render
                     characters.map(character => {
-                        if (character.name.toLowerCase().includes(props.query.name.toLowerCase())) {
-                            return <ItemsCard key={character.name} character={character}/>}}) 
+                        if (character.name.toLowerCase().includes(props.query.name.toLowerCase() || character.birthday == props.query.dropVal)) {
+                            return <CharacterCard key={character.name} character={character}/>}})
                     //otherwise just render everything
-                    : characters.map(character => <ItemsCard key={character.name} character={character}/>))
+                    : characters.map(character => <CharacterCard key={character.name} character={character}/>))
             }
         </ListDiv>
     )
 }
 
-export default ItemsList;
+export default CharacterList;
