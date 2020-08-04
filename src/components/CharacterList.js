@@ -12,22 +12,22 @@ const ListDiv = styled.div`
     justify-content: center;
     `
     
-const ItemsList = (props) => {
-    const [items, setItems] = useState([]);
+const CharacterList = (props) => {
+    const [characters, setCharacters] = useState([]);
 
     //pull in api data on pageload.
     useEffect(() => {
-        const getItems = () => {
+        const getCharacters = () => {
             axios
-                .get('https://amoo-xing.herokuapp.com/sellables')
-                .then(response => {setItems(response.data);})
+                .get('https://amoo-xing.herokuapp.com/villagers')
+                .then(response => {setCharacters(response.data);})
                 .catch(error => {console.error('Server Error', error);});
         }
-        getItems();
+        getCharacters();
     }, [props.query])
 
-    //if items array is empty, call loader div
-    if (items.length == 0) {
+    //if characters array is empty, call loader div
+    if (characters.length == 0) {
         return <div class="loader">Loading...</div>
     }
     return (
@@ -37,11 +37,11 @@ const ItemsList = (props) => {
             {(
                 props.query.name.trim() ? 
                     // map over what matches and render
-                    items.map(item => {
-                        if (item.name.toLowerCase().includes(props.query.name.toLowerCase())) {
-                            return <ItemsCard key={item.name} item={item}/>}}) 
+                    characters.map(character => {
+                        if (character.name.toLowerCase().includes(props.query.name.toLowerCase())) {
+                            return <ItemsCard key={character.name} character={character}/>}}) 
                     //otherwise just render everything
-                    : items.map(item => <ItemsCard key={item.name} item={item}/>))
+                    : characters.map(character => <ItemsCard key={character.name} character={character}/>))
             }
         </ListDiv>
     )

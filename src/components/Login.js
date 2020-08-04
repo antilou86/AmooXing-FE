@@ -16,7 +16,7 @@ const Login = () => {
         {/* password 2 */}
         <label for="password2">Confirm Password</label>
         <input type="text" name="password2" value="password 2"></input>
-
+        
         {/* submit */}
         <input type="submit" value="Submit"></input>
       </form>
