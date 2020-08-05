@@ -39,10 +39,10 @@ const CharacterList = (props) => {
                 props.query.name.trim() || props.query.dropVal ? 
                     // map over what matches and render
                     characters.map(character => {
-                        if (character.name.toLowerCase().includes(props.query.name.toLowerCase()) || character.birthday == props.query.dropVal) {
+                        if (character.villager_name.toLowerCase().includes(props.query.name.toLowerCase()) || character.birthday == props.query.dropVal) {
                             return <CharacterCard key={character.name} character={character}/>}})
                     //otherwise just render everything
-                    : characters.map(character => <CharacterCard key={character.name} character={character}/>))
+                    : characters.map(character => <CharacterCard key={character.villager_name} character={character}/>))
             }
         </ListDiv>
     )
