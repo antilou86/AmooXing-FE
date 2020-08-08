@@ -1,4 +1,4 @@
-#AmooXing
+# AmooXing
 a companion app for Animal Crossing New Horizon players to gather information about the game as they play
 currently contains information about collectable items (Sea critters, Bugs, and Fish)
 
