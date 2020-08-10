@@ -4,6 +4,15 @@ currently contains information about collectable items (Sea critters, Bugs, and 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+pushes to init are for staging and will be deployed to -> [vercel](https://amoo-xing-fe.antilou86.vercel.app/)
+pushes to master are for production and will be deployed to [aws Amplify](https://master.d3u1c7xm8qrvaq.amplifyapp.com/)
+
+## Known issues
+3 known issues so far, ordered by severity
+1. there is a bug with master deploy, but not staging that wont allow client side routing
+2. there is a bug in sell price of the "Giga Clam" item, it is showing as 1,500 but is really 15,000
+3. there is a bug in the image tag on the villager named "Timmy"
+
 ## Available Scripts
 
 In the project directory, you can run:
