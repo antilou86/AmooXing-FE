@@ -1,5 +1,6 @@
 import React from 'react';
 import {Route, BrowserRouter as Router, Switch} from 'react-router-dom';
+import NavBar from './components/NavBar'
 import ItemsPage from './components/ItemsPage';
 import CharacterPage from './components/CharacterPage';
 
@@ -10,17 +11,17 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <NavBar/>
         <img src={amoo} alt="logo for amoo xing"/>
         <h1>Where amoos trik yew inta dooin thurr chores</h1>
-        {/*NavBar component here*/}
-        <Switch>
-              <Route exact path="/" component={ItemsPage}/>
-              {/* <Route path="/registration" component={}/> */}
-              {/* <Route path="/login" component={}/> */}
-              <Route path="/sellables" component={ItemsPage}/>
-              <Route path="/villagers" component={CharacterPage}/>
-              {/* <Route path="/profile" component ={}/> */}
-        </Switch>
+        
+        <Route path="/" exact component={ItemsPage}/>
+        {/* <Route path="/registration" component={}/> */}
+        {/* <Route path="/login" component={}/> */}
+        <Route path="/sellables" component={ItemsPage}/>
+        <Route path="/villagers" component={CharacterPage}/>
+        {/* <Route path="/profile" component ={}/> */}
+
         {/* footer here */}
       </div>
     </Router>
