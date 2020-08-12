@@ -28,7 +28,7 @@ const CharacterList = (props) => {
 
     //if characters array is empty, call loader div
     if (characters.length === 0) {
-        return <div class="loader">Loading...</div>
+        return <div class="loader"/>
     }
 
     return (
