@@ -26,9 +26,9 @@ const ItemsPage = () => {
     setQuery({ ...query, name: event.target.value })
   }
 
-  const handleSelectChange = (dropdown) => {
-    setQuery({ ...query, dropVal: dropdown.value})
-  }
+  // const handleSelectChange = (dropdown) => {
+  //   setQuery({ ...query, dropVal: dropdown.value})
+  // }
   //grab birthdays and fill drop bar with those vals
 
   useEffect(() => {
@@ -56,10 +56,10 @@ const ItemsPage = () => {
         />
       </form>
       
-      <p>Bday:</p>
+      {/* <p>Bday:</p>
       <select name="birthdays" onChange={handleSelectChange}>
           {query.birthdays.map((bday,key) => <option key={key}>{bday}</option>)}
-      </select>
+      </select> */}
 
       <CharacterList query={query}/>
     </Container>
