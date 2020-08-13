@@ -5,7 +5,7 @@ currently contains information about collectable items (Sea critters, Bugs, and 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 pushes to init are for staging and will be deployed to -> [vercel](https://amoo-xing-fe.antilou86.vercel.app/) <br/>
-pushes to master are for production and will be deployed to [aws Amplify](https://master.d3u1c7xm8qrvaq.amplifyapp.com/)
+pushes to master are for production and will be deployed to -> [aws Amplify](https://master.d3u1c7xm8qrvaq.amplifyapp.com/)
 
 ## Known issues
 2 known issues so far, ordered by severity
