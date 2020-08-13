@@ -28,7 +28,7 @@ const ItemsList = (props) => {
 
     //if items array is empty, call loader div
     if (items.length == 0) {
-        return <div class="loader">Loading...</div>
+        return <div class="loader"/>
     }
     
     return (
