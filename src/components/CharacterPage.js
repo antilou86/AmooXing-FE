@@ -18,15 +18,14 @@ const ItemsPage = () => {
 
   const [query, setQuery] = useState({
     name: "",
-    dropVal: "",
-    birthdays: []
+    dropVal: ""
   })
 
   const handleInputChange = (event) => {
     setQuery({ ...query, name: event.target.value })
   }
-  const handleSelectChange = (dropdown) => {
-    setQuery({ ...query, dropVal: dropdown.value})
+  const handleSelectChange = (event) => {
+    setQuery({ ...query, dropVal: event.target.value})
     console.log(query)
   }
 
@@ -58,6 +57,7 @@ const ItemsPage = () => {
       
       <p>Bday:</p>
       <select name="birthdays" onChange={handleSelectChange}>
+          <option value="tbd">Select</option>
           <option value="Jan">Jan</option>
           <option value="Feb">Feb</option>
           <option value="Mar">Mar</option>
