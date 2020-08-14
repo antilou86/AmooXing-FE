@@ -25,26 +25,25 @@ const ItemsPage = () => {
   const handleInputChange = (event) => {
     setQuery({ ...query, name: event.target.value })
   }
+  const handleSelectChange = (dropdown) => {
+    setQuery({ ...query, dropVal: dropdown.value})
+  }
 
-  // const handleSelectChange = (dropdown) => {
-  //   setQuery({ ...query, dropVal: dropdown.value})
-  // }
-  //grab birthdays and fill drop bar with those vals
-
+  // grab birthdays and fill drop bar with those vals
+  let tempArr = []
   useEffect(() => {
       const getBirthdays = () => {
           axios
             .get('https://amoo-xing.herokuapp.com/villagers')
             .then(response => {
                 for(const character of response.data) {
-                    setQuery({...query, birthdays: [...query.birthdays, character.birthday]})
+                  tempArr.push(character.birthday)  
             }})
             .catch(error => {console.error('SERVER ERROR: whoa whoa whoa', error)})
       }
       getBirthdays()
   },[])
-
-
+  
   return (
     <Container>
       <form> 
@@ -56,10 +55,12 @@ const ItemsPage = () => {
         />
       </form>
       
-      {/* <p>Bday:</p>
+      <p>Bday:</p>
       <select name="birthdays" onChange={handleSelectChange}>
-          {query.birthdays.map((bday,key) => <option key={key}>{bday}</option>)}
-      </select> */}
+          {(
+          tempArr.map(bday => <option value={bday}>{bday}</option>))
+          }
+      </select>
 
       <CharacterList query={query}/>
     </Container>
