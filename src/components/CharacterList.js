@@ -14,63 +14,75 @@ const ListDiv = styled.div`
     
 const CharacterList = (props) => {
     const [characters, setCharacters] = useState([]);
-    
-    //need to rebuild the bdayTable object as a state object and try again
-
-
+    const [bdayTable, setBdayTable] = useState({});
+    console.log("query from props", props.query)
     //pull in api data on pageload.
-    let bdayTable = {
-        'Jan': [],
-        'Feb': [],
-        'Mar': [],
-        'Apr': [],
-        'May': [],
-        'Jun': [],
-        'Jul': [],
-        'Aug': [],
-        'Sep': [],
-        'Oct': [],
-        'Nov': [],
-        'Dec': [],
-        'TBD': [],
-    }
     useEffect(() => {
         const getCharacters = () => {
             axios
                 .get('https://amoo-xing.herokuapp.com/villagers')
                 .then(response => {
                     setCharacters(response.data)
+                    let tempTable = {
+                        'Jan': [],
+                        'Feb': [],
+                        'Mar': [],
+                        'Apr': [],
+                        'May': [],
+                        'Jun': [],
+                        'Jul': [],
+                        'Aug': [],
+                        'Sep': [],
+                        'Oct': [],
+                        'Nov': [],
+                        'Dec': [],
+                        'TBD': []
+                    }
                     for(const character of response.data) {
                         if(character.birthday[0] === "1"){
                             if(character.birthday[1] === "/"){
-                                bdayTable['Jan'] = [...bdayTable['Jan'], character.birthday] 
+                                let tempArr = [...tempTable.Jan, character.birthday]
+                                tempTable.Jan = tempArr
                             } else if (character.birthday[1] === "0") {
-                                bdayTable['Oct'] = [...bdayTable['Oct'], character.birthday] 
+                                let tempArr = [...tempTable.Oct, character.birthday]
+                                tempTable.Oct = tempArr
                             } else if ( character.birthday[1] === "1") {
-                                bdayTable['Nov'] = [...bdayTable['Nov'], character.birthday] 
+                                let tempArr = [...tempTable.Nov, character.birthday]
+                                tempTable.Nov = tempArr
                             } else if ( character.birthday[1] === "2") {
-                                bdayTable['Dec'] = [...bdayTable['Dec'], character.birthday] 
+                                let tempArr = [...tempTable.Dec, character.birthday]
+                                tempTable.Dec = tempArr
                             }
                         } else if(character.birthday[0] === "2") {
-                            bdayTable['Feb'] = [...bdayTable['Feb'], character.birthday] 
+                            let tempArr = [...tempTable.Feb, character.birthday]
+                            tempTable.Feb = tempArr
                         } else if(character.birthday[0] === "3") {
-                            bdayTable['Mar'] = [...bdayTable['Mar'], character.birthday] 
+                            let tempArr = [...tempTable.Mar, character.birthday]
+                            tempTable.Mar = tempArr
                         } else if(character.birthday[0] === "4") {
-                            bdayTable['Apr'] = [...bdayTable['Apr'], character.birthday] 
+                            let tempArr = [...tempTable.Apr, character.birthday]
+                            tempTable.Apr = tempArr
                         } else if(character.birthday[0] === "5") {
-                            bdayTable['May'] = [...bdayTable['May'], character.birthday] 
+                            let tempArr = [...tempTable.May, character.birthday]
+                            tempTable.May = tempArr
                         } else if(character.birthday[0] === "6") {
-                            bdayTable['Jun'] = [...bdayTable['Jun'], character.birthday] 
+                            let tempArr = [...tempTable.Jun, character.birthday]
+                            tempTable.Jun = tempArr
                         } else if(character.birthday[0] === "7") {
-                            bdayTable['Jul'] = [...bdayTable['Jul'], character.birthday] 
+                            let tempArr = [...tempTable.Jul, character.birthday]
+                            tempTable.Jul = tempArr
                         } else if(character.birthday[0] === "8") {
-                            bdayTable['Aug'] = [...bdayTable['Aug'], character.birthday] 
+                            let tempArr = [...tempTable.Aug, character.birthday]
+                            tempTable.Aug = tempArr
                         } else if(character.birthday[0] === "9") {
-                            bdayTable['Sep'] = [...bdayTable['Sep'], character.birthday] 
+                            let tempArr = [...tempTable.Sep, character.birthday]
+                            tempTable.Sep = tempArr
                         } else {
-                            bdayTable['TBD'] = [...bdayTable['TBD'], character.birthday] 
+                            let tempArr = [...tempTable.TBD, character.birthday]
+                            tempTable.TBD = tempArr
                         }
                     }
+                    setBdayTable(tempTable)
                 })
                 .catch(error => {console.error('Server Error', error);});
         }
