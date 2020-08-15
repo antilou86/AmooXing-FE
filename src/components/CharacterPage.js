@@ -26,23 +26,8 @@ const ItemsPage = () => {
   }
   const handleSelectChange = (event) => {
     setQuery({ ...query, dropVal: event.target.value})
-    console.log(query)
+    console.log(query.dropVal)
   }
-
-  // grab birthdays and fill drop bar with those vals
-  let tempArr = []
-  useEffect(() => {
-      const getBirthdays = () => {
-          axios
-            .get('https://amoo-xing.herokuapp.com/villagers')
-            .then(response => {
-                for(const character of response.data) {
-                  tempArr.push(character.birthday)  
-            }})
-            .catch(error => {console.error('SERVER ERROR: whoa whoa whoa', error)})
-      }
-      getBirthdays()
-  },[])
   
   return (
     <Container>
