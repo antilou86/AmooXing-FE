@@ -105,7 +105,7 @@ const CharacterList = (props) => {
                         if (character.villager_name.toLowerCase().includes(props.query.name.toLowerCase())) {
                             return <CharacterCard key={character.name} character={character}/>
                     }})
-                    : props.query.dropVal ? 
+                    : props.query.dropVal && props.query.dropVal !== "TBD" ? 
                         // map over what matches and render
                         characters.map(character => {
                             if (bdayTable[props.query.dropVal].includes(character.birthday)) {
