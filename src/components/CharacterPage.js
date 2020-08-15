@@ -40,7 +40,7 @@ const ItemsPage = () => {
       
       <p>Bday:</p>
       <select name="birthdays" onChange={handleSelectChange}>
-          <option value="tbd">Select</option>
+          <option value="TBD">Select</option>
           <option value="Jan">Jan</option>
           <option value="Feb">Feb</option>
           <option value="Mar">Mar</option>
