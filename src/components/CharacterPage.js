@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import CharacterList from './CharacterList';
 
@@ -18,33 +17,16 @@ const ItemsPage = () => {
 
   const [query, setQuery] = useState({
     name: "",
-    dropVal: "",
-    birthdays: []
+    dropVal: ""
   })
 
   const handleInputChange = (event) => {
     setQuery({ ...query, name: event.target.value })
   }
-
-  // const handleSelectChange = (dropdown) => {
-  //   setQuery({ ...query, dropVal: dropdown.value})
-  // }
-  //grab birthdays and fill drop bar with those vals
-
-  useEffect(() => {
-      const getBirthdays = () => {
-          axios
-            .get('https://amoo-xing.herokuapp.com/villagers')
-            .then(response => {
-                for(const character of response.data) {
-                    setQuery({...query, birthdays: [...query.birthdays, character.birthday]})
-            }})
-            .catch(error => {console.error('SERVER ERROR: whoa whoa whoa', error)})
-      }
-      getBirthdays()
-  },[])
-
-
+  const handleSelectChange = (event) => {
+    setQuery({ ...query, dropVal: event.target.value})
+  }
+  
   return (
     <Container>
       <form> 
@@ -56,10 +38,22 @@ const ItemsPage = () => {
         />
       </form>
       
-      {/* <p>Bday:</p>
+      <p>Bday:</p>
       <select name="birthdays" onChange={handleSelectChange}>
-          {query.birthdays.map((bday,key) => <option key={key}>{bday}</option>)}
-      </select> */}
+          <option value="TBD">Select</option>
+          <option value="Jan">Jan</option>
+          <option value="Feb">Feb</option>
+          <option value="Mar">Mar</option>
+          <option value="Apr">Apr</option>
+          <option value="May">May</option>
+          <option value="Jun">Jun</option>
+          <option value="Jul">Jul</option>
+          <option value="Aug">Aug</option>
+          <option value="Sep">Sep</option>
+          <option value="Oct">Oct</option>
+          <option value="Nov">Nov</option>
+          <option value="Dec">Dec</option>
+      </select>
 
       <CharacterList query={query}/>
     </Container>
