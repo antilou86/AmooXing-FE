@@ -27,8 +27,8 @@ const ItemsList = (props) => {
     }, [props.query])
 
     //if items array is empty, call loader div
-    if (items.length == 0) {
-        return <div class="loader"/>
+    if (items.length === 0) {
+        return <div className="loader"/>
     }
     
     return (
@@ -40,7 +40,10 @@ const ItemsList = (props) => {
                     // map over what matches and render
                     items.map(item => {
                         if (item.name.toLowerCase().includes(props.query.name.toLowerCase())) {
-                            return <ItemsCard key={item.name} item={item}/>}}) 
+                            return <ItemsCard key={item.name} item={item}/>
+                        }
+                        return null;
+                    }) 
                     //otherwise just render everything
                     : items.map(item => <ItemsCard key={item.name} item={item}/>))
             }

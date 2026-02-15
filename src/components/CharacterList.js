@@ -92,7 +92,7 @@ const CharacterList = (props) => {
 
     //if characters array is empty, call loader div
     if (characters.length === 0) {
-        return <div class="loader"/>
+        return <div className="loader"/>
     }
     console.log("just before list render", bdayTable[`${props.query.dropVal}`], "\n","just dropVal",`${props.query.dropVal}`, "\n", "bdayTable.Jan", bdayTable.Jan, "\n", "bdayTable['Jan']", bdayTable["Jan"], "entire bdayTable", bdayTable)
     return (
@@ -104,13 +104,17 @@ const CharacterList = (props) => {
                     characters.map(character => {
                         if (character.villager_name.toLowerCase().includes(props.query.name.toLowerCase())) {
                             return <CharacterCard key={character.name} character={character}/>
-                    }})
+                        }
+                        return null;
+                    })
                     : props.query.dropVal && props.query.dropVal !== "TBD" ? 
                         // map over what matches and render
                         characters.map(character => {
                             if (bdayTable[props.query.dropVal].includes(character.birthday)) {
                                 return <CharacterCard key={character.name} character={character}/>
-                    }})
+                            }
+                            return null;
+                        })
                     //otherwise just render everything
                     : characters.map(character => <CharacterCard key={character.villager_name} character={character}/>))
             }
