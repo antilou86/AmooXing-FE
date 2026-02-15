@@ -19,7 +19,7 @@ const ItemsList = (props) => {
     useEffect(() => {
         const getItems = () => {
             axios
-                .get('https://amoo-xing.herokuapp.com/sellables')
+                .get('https://amoo-xing.vercel.app/sellables')
                 .then(response => {setItems(response.data);})
                 .catch(error => {console.error('Server Error', error);});
         }

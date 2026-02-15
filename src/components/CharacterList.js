@@ -20,7 +20,7 @@ const CharacterList = (props) => {
     useEffect(() => {
         const getCharacters = () => {
             axios
-                .get('https://amoo-xing.herokuapp.com/villagers')
+                .get('https://amoo-xing.vercel.app/villagers')
                 .then(response => {
                     setCharacters(response.data)
                     let tempTable = {
